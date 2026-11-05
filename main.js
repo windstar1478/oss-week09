@@ -17,4 +17,17 @@ const CITIES = {
   gangneung: { name: "Gangneung", lat: 37.7519, lon: 128.8761 },
 };
 
-// P1 부터 여기 아래에 씁니다.
+const form = document.querySelector("#run-form");
+const citySelect = document.querySelector("#city");
+const rainInput = document.querySelector("#ain-limit");
+const windInput = document.querySelector("#wind-limit");
+const statusEl = document.querySelector("#status");
+const summaryEl = document.querySelector("#summary");
+const rowsEl = document.querySelector("#rows");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const city = CITIES[citySelect.value];
+  statusEl.textContent = "Loading...";
+  console.log(city);
+});
