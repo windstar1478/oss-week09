@@ -17,3 +17,12 @@ export function toDays(daily) {
     rain: daily.precipitation_probability_max[i],
   }));
 }
+
+export function isGoodDay(day, limits) {
+  return day.rain <= limits.rain && day.wind <= limits.wind;
+}
+
+export function summarize(days, limits) {
+  const good = days.filter((day) => isGoodDay(day, limits)).length;
+  return `good for a run on ${good} of ${days.length} days`;
+}
